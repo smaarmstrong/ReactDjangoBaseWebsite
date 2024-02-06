@@ -7,7 +7,7 @@ test("Happy path test", async () => {
   const copyrightText = await screen.findByText(/copyright/i);
   expect(copyrightText).toBeInTheDocument();
 
-  const loginLink = await screen.findByRole("link", { name: /login/ });
+  const loginLink = await screen.findByRole("link", { name: /login/i });
   expect(loginLink).toBeInTheDocument();
   userEvent.click(loginLink);
 
