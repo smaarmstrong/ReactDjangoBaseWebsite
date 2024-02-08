@@ -14,7 +14,7 @@ test("Happy path test", async () => {
   const signInText = await screen.findByRole("heading", { name: /sign in/i });
   expect(signInText).toBeInTheDocument();
 
-  const emailField = await screen.findByRole("textBox", {
+  const emailField = await screen.findByRole("textbox", {
     name: /email address/i,
   });
   expect(emailField).toBeInTheDocument();
