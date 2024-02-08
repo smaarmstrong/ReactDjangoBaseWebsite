@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header";
 import { Container } from "react-bootstrap";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} exact />
           <Route path="/login" element={<LoginPage />} exact />
+          <Route path="/register" element={<RegistrationPage />} exact />
         </Routes>
       </Container>
       <Footer />

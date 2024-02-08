@@ -28,6 +28,7 @@ test("Happy path test", async () => {
 
   const registerLink = await screen.findByRole("link", { name: /register/i });
   expect(registerLink).toBeInTheDocument();
+  userEvent.click(registerLink);
 
   const registerHeader = await screen.findByRole("heading", {
     name: /register/i,
