@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { checkPasswordComplexity } from "../../utilities";
+import { checkPasswordComplexity } from "../../utilities/index";
 import Alert from "react-bootstrap/Alert";
 
 function RegistrationPage() {
