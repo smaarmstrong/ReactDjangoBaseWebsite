@@ -82,6 +82,8 @@ function RegistrationPage() {
                       if (e) {
                         return <li key={e}>{e}</li>;
                       }
+                      // Add a return statement for the case where the condition is not met
+                      return null;
                     }
                   )}
                 </Alert>
