@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import RegistrationPage from "../RegistrationPage";
 import { BrowserRouter } from "react-router-dom";
@@ -155,5 +155,9 @@ test("Registration page checks for password complexity", async () => {
   expect(needPunc).not.toBeInTheDocument();
   expect(needLength).not.toBeInTheDocument();
   expect(passwordGood).toBeInTheDocument();
-  expect(submitButton).toBeEnabled();
+
+  // This also seems to help, but still getting annoying act() warnings.
+  await waitFor(() => {
+    expect(submitButton).toBeEnabled();
+  });
 });

@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 
@@ -55,6 +55,7 @@ test("Happy path test", async () => {
   const registerButton = await screen.findByRole("button", {
     name: /register/i,
   });
+
   expect(registerButton).toBeInTheDocument();
   expect(registerButton).toBeDisabled();
 
@@ -66,5 +67,14 @@ test("Happy path test", async () => {
   userEvent.type(registerPassword, "LetMeIn1234!");
   userEvent.clear(confirmPassword);
   userEvent.type(confirmPassword, "LetMeIn1234!");
-  expect(registerButton).toBeEnabled();
+
+  // this was my needle in the hay; I needed to use waitFor
+  // to ensure that assertions are executed AFTER the asyncronous
+  // updates are applied.
+  await waitFor(() => {
+    expect(registerButton).toBeEnabled();
+  });
+
+  // however, I am STILL getting "not wrapped in act" errors,
+  // but at least the tests are passing according to the tutorial.
 });
